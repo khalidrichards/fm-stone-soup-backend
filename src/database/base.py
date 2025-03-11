@@ -1,6 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, DeclarativeBase
+
+class Base(DeclarativeBase):
+    pass
 
 url = URL.create(
     drivername="postgresql",
