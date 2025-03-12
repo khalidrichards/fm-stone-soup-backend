@@ -16,4 +16,7 @@ url = URL.create(
 
 engine = create_engine(url)
 Session = sessionmaker(bind=engine)
-session = Session()
+
+async def get_session():
+    async with Session() as session:
+        yield session
