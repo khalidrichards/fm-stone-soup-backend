@@ -35,7 +35,7 @@ class Pantry(Base):
     __tablename__ = "pantry"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    last_updated: Mapped[datetime.datetime] = mapped_column(DateTime)
+    last_updated: Mapped[datetime] = mapped_column(DateTime)
 
     user_id = mapped_column(ForeignKey("user.id"))
     pantry_items: Mapped[List["PantryItem"]] = relationship(back_populates="pantry_item")
