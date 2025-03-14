@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from typing import List
+from typing import Dict, List
 from .models import Pantry, PantryItem  # Assuming these are the correct imports
 from .schema import PantryItemCreate  # Assuming this is the correct import
 

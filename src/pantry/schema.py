@@ -18,7 +18,7 @@ class PantryItemBase(BaseModel):
     unit: Optional[str] = Field(min_length=1, max_length=16)
     other_measurement: Optional[str] = Field(min_length=1, max_length=16)
     notes: Optional[str] = Field(min_length=1, max_length=256)
-    expiration_date: datetime.datetime = Field()
+    expiration_date: datetime = Field()
     pantry_id: int
 
 
@@ -52,7 +52,7 @@ class PantryBase(BaseModel):
     This class defines the base pantry model. The pantry model itself doesn't have
     a lot of fields since most of the heavy lifting is done in the PantryItem model.
     """
-    last_updated: datetime.datetime = Field()
+    last_updated: datetime = Field()
     user_id: int
 
 class PantryCreate(PantryBase):
