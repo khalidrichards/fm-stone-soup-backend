@@ -14,7 +14,7 @@ fake_db = [
         "id": 1,
         "first_name": "Q",
         "last_name": "Q",
-        "email": "robertquinonesjr@gmail.com",
+        "email": "qthedude@gmail.com",
         "pronouns": "he/him",
         "pantry_id": 1,
         "password": "password",
@@ -23,8 +23,8 @@ fake_db = [
         "id": 2,
         "first_name": "Khalid",
         "last_name": "Richards",
-        "email": "khalid.mrich@gmail.com",
-        "pronouns": "he/him",
+        "email": "kthedude@gmail.com",
+        "pronouns": "they/them",
         "pantry_id": 2,
         "password": "password2",
     },
@@ -32,7 +32,7 @@ fake_db = [
         "id": 3,
         "first_name": "Melanie",
         "last_name": "Bush",
-        "email": "melanie.e.bush@gmail.com",
+        "email": "dokutaemh@gmail.com",
         "pronouns": "she/her",
         "pantry_id": 3,
         "password": "password3",
@@ -40,7 +40,7 @@ fake_db = [
 ]
 
 # TODO: Definitely delete this; these should come back from an auto-incrementing field
-# in the DB.
+# in the DB. Also, we don't want globals like this.
 NEXT_USER_ID = 4
 NEXT_PANTRY_ID = 4
 
@@ -55,6 +55,7 @@ async def get_user_by_id(user_id: int):
             return user
     return {"error": "User not found."}
 
+# TODO: Currently, the password doesn't get stored. Need to figure that out.
 @router.put("/")
 async def create_user(user: UserCreate):
     global NEXT_USER_ID, NEXT_PANTRY_ID
