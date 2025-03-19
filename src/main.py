@@ -8,19 +8,14 @@ from pydantic import BaseModel
 from datetime import date
 
 ## Application Imports ##
-from user.service import create_user
+from user.router import router as user_router
+from pantry.router import router as pantry_router
 
 app = FastAPI()
 
+app.include_router(user_router)
+app.include_router(pantry_router)
+
 @app.get("/")
-def read_root():
-    return {"Hello": "from Flatbush Mixtape's Tech Working Group!"}
-
-@app.put("/users")
-async def add_user():
-    user = await create_user()
-    return {"user": user}
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+async def root():
+    return {"message": "Hello, Flatbush!"}
