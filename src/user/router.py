@@ -30,7 +30,7 @@ fake_db = [
     },
     {
         "id": 3,
-        "first_name": "Melanie",
+        "first_name": "Mel",
         "last_name": "Bush",
         "email": "dokutaemh@gmail.com",
         "pronouns": "she/her",
