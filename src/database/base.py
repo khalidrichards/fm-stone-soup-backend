@@ -17,6 +17,14 @@ url = URL.create(
 engine = create_engine(url)
 Session = sessionmaker(bind=engine)
 
-async def get_session():
-    async with Session() as session:
+def get_session():
+    """ Returns a new session object for the database. """
+    session = Session()
+    try:
         yield session
+        session.commit()
+    except:
+        session.rollback()
+        raise
+    finally:
+        session.close()
